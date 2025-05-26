@@ -37,8 +37,24 @@ export default function MainLayout({ children }: MainLayoutProps) {
         </header>
 
         <main className="relative flex flex-row flex-grow overflow-hidden">
-          <aside className="w-64 bg-card p-4 flex-col items-center justify-start text-muted-foreground border-r border-border/40 transition-all duration-300 ease-in-out hidden md:flex overflow-y-auto">
-            {/* Left sidebar content */}
+          <aside className="w-64 bg-card p-4 flex flex-col items-center justify-center text-muted-foreground border-r border-border/40 transition-all duration-300 ease-in-out hidden md:flex overflow-y-auto">
+            <div className="flex flex-col items-center text-center space-y-4">
+              <img 
+                src="/images/gladiator-logo.png" 
+                alt="Gladiator" 
+                className="w-40 h-40 mb-4"
+              />
+              <h2 className="text-xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                The Cursed Coliseum
+              </h2>
+              <div className="space-y-3 text-sm max-w-[90%] mx-auto">
+                <p>In the realm of Netheron, the Eternal Coliseum rises from the mist, where fallen warriors battle endlessly.</p>
+                <p className="border-l-2 border-r-2 border-red-500 px-3 py-1 italic text-foreground mx-auto max-w-[90%]">
+                  "Only by surviving the undead hordes can the curse be broken."
+                </p>
+                <p>Face <span className="text-blue-300">Ghosts</span>, <span className="text-white">Skeletons</span>, and <span className="text-green-400">Zombies</span> in this endless battle for freedom.</p>
+              </div>
+            </div>
           </aside>
 
           <div
