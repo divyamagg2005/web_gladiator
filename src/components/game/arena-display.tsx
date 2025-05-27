@@ -296,16 +296,40 @@ export default function ArenaDisplay() {
         break;
       }
       case 'KeyE':
-        if (equippedWeaponRef.current && controlsRef.current?.isLocked) {
+        if (controlsRef.current?.isLocked && !isPaused.current && !isAnimatingAttackRef.current) {
           isAnimatingAttackRef.current = true;
+          attackAnimStartTimeRef.current = performance.now();
           
-          // Use the main handlePlayerAttack function
-          handlePlayerAttack(equippedWeaponRef.current as 'gun1' | 'gun2' | 'sword');
+          isPunchingRef.current = true;
+          setTimeout(() => { isPunchingRef.current = false; }, 100);
+          
+          if (equippedWeaponRef.current === 'gun1') {
+            handlePlayerAttack('gun1');
+          } else if (equippedWeaponRef.current === 'gun2') {
+            handlePlayerAttack('gun2');
+          } else if (equippedWeaponRef.current === 'sword') {
+            handlePlayerAttack('sword');
+          } else {
+            handlePlayerAttack('punch');
+          }
           
           // Reset attack animation after duration
           setTimeout(() => {
             isAnimatingAttackRef.current = false;
           }, ATTACK_ANIMATION_DURATION * 1000);
+        }
+        break;
+      case 'KeyR':
+        if (controlsRef.current?.isLocked && !isPaused.current && !isAnimatingAttackRef.current) {
+          isAnimatingAttackRef.current = true;
+          isKickingRef.current = true;
+          
+          setTimeout(() => { 
+            isKickingRef.current = false; 
+            isAnimatingAttackRef.current = false; 
+          }, 100);
+          
+          handlePlayerAttack('kick');
         }
         break;
     }

@@ -31,8 +31,8 @@ export default function GameUIOverlay() {
               <ul className="space-y-1 text-sm">
                 <li><span className="font-medium">WASD</span> - Move around</li>
                 <li><span className="font-medium">Mouse</span> - Look around</li>
-                <li><span className="font-medium">Left Click</span> - Attack/Shoot</li>
-                <li><span className="font-medium">Right Click</span> - Kick</li>
+                <li><span className="font-medium">Left Click</span> or <span className="font-medium">E</span> - Attack/Shoot</li>
+                <li><span className="font-medium">Right Click</span> or <span className="font-medium">R</span> - Kick</li>
                 <li><span className="font-medium">Space</span> - Jump (up to 4x in air)</li>
                 <li><span className="font-medium">Left Shift</span> - Run</li>
                 <li><span className="font-medium">Left Ctrl/C</span> - Crouch</li>
